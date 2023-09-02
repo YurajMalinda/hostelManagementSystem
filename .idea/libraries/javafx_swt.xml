@@ -1,0 +1,16 @@
+<component name="libraryTable">
+  <library name="javafx-swt">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/src/lk/ijse/gdse/hostelManagementSystem/lib/lib/javafx-swt.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/lk/ijse/gdse/hostelManagementSystem/lib/lib/javafx.base.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/lk/ijse/gdse/hostelManagementSystem/lib/lib/javafx.controls.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/lk/ijse/gdse/hostelManagementSystem/lib/lib/javafx.fxml.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/lk/ijse/gdse/hostelManagementSystem/lib/lib/javafx.graphics.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/lk/ijse/gdse/hostelManagementSystem/lib/lib/javafx.media.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/lk/ijse/gdse/hostelManagementSystem/lib/lib/javafx.swing.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/lk/ijse/gdse/hostelManagementSystem/lib/lib/javafx.web.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
