@@ -1,14 +1,128 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="lk.ijse.gdse.hostelManagementSystem.view.RoomManage"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="768.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.hostelManagementSystem.controller.RoomController">
+   <children>
+      <ImageView fitHeight="768.0" fitWidth="1440.0">
+         <image>
+            <Image url="@assests/Background.jpg" />
+         </image>
+      </ImageView>
+      <ImageView layoutX="54.0" layoutY="56.0">
+         <image>
+            <Image url="@assests/previous.png" />
+         </image>
+         <effect>
+            <DropShadow height="15.0" radius="7.0" width="15.0" />
+         </effect>
+      </ImageView>
+      <JFXButton buttonType="RAISED" layoutX="54.0" layoutY="56.0" onAction="#btnBackOnAction" prefHeight="30.0" prefWidth="30.0" ripplerFill="BLACK" style="-fx-background-radius: 50;" text="." textAlignment="CENTER" textFill="#8d8d8d" textOverrun="CENTER_ELLIPSIS" />
+      <AnchorPane layoutX="117.0" layoutY="91.0" prefHeight="587.0" prefWidth="1207.0" style="-fx-background-color: #e6f1ff; -fx-background-radius: 20;">
+         <children>
+            <JFXTextField fx:id="txtSearch" focusColor="#0d009a" labelFloat="true" layoutX="791.0" layoutY="30.0" prefHeight="34.0" prefWidth="402.0" promptText="Search" style="-fx-font-size: 12; -fx-font-weight: bold; -fx-text-fill: #6D6E71;" unFocusColor="#6d6e71" />
+            <TableView fx:id="tblRooms" editable="true" layoutX="455.0" layoutY="75.0" prefHeight="498.0" prefWidth="738.0" style="-fx-font-size: 12; -fx-background-color: #ffff;">
+               <columns>
+                  <TableColumn fx:id="colRoomTypeID" prefWidth="164.0" style="-fx-font-weight: bold;" text="ID" />
+                  <TableColumn fx:id="colType" prefWidth="172.0" text="Type" />
+                  <TableColumn fx:id="colKeyMoney" prefWidth="197.0" text="Key Money" />
+                  <TableColumn fx:id="colQty" minWidth="0.0" prefWidth="193.0" text="Qty." />
+               </columns>
+               <effect>
+                  <DropShadow height="15.0" radius="7.0" width="15.0" />
+               </effect>
+            </TableView>
+            <AnchorPane layoutX="22.0" layoutY="75.0" prefHeight="442.0" prefWidth="393.0" style="-fx-background-color: #ffff; -fx-background-radius: 20;">
+               <children>
+                  <JFXButton fx:id="btnEdit" buttonType="RAISED" layoutX="146.0" layoutY="11.0" onAction="#btnEditOnAction" prefHeight="20.0" prefWidth="100.0" ripplerFill="#0d009a" style="-fx-background-color: #555390; -fx-background-radius: 10;" text="Edit" textFill="WHITE">
+                     <font>
+                        <Font name="Calibri Bold" size="14.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </JFXButton>
+                  <JFXButton fx:id="btnDelete" buttonType="RAISED" layoutX="27.0" layoutY="271.0" onAction="#btnDeleteOnAction" prefHeight="20.0" prefWidth="100.0" ripplerFill="#0d009a" style="-fx-background-color: #ff4848; -fx-background-radius: 10;" text="Delete" textFill="WHITE">
+                     <font>
+                        <Font name="Calibri Bold" size="14.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </JFXButton>
+                  <JFXButton fx:id="btnNew" buttonType="RAISED" layoutX="23.0" layoutY="11.0" onAction="#btnNewOnAction" prefHeight="20.0" prefWidth="100.0" ripplerFill="#0d009a" style="-fx-background-color: #555390; -fx-background-radius: 10;" text="+ New" textFill="WHITE">
+                     <font>
+                        <Font name="Calibri Bold" size="14.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </JFXButton>
+                  <GridPane layoutX="23.0" layoutY="49.0" prefHeight="197.0" prefWidth="361.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="351.0" minWidth="10.0" prefWidth="172.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="591.0000305175781" minWidth="10.0" prefWidth="346.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <Label prefHeight="24.0" prefWidth="140.0" style="-fx-font-size: 12; -fx-font-weight: bold; -fx-text-fill: #6D6E71;" styleClass="\\@font-face {    font-family: 'Montserrat';    src: url('Montserrat-Bold.ttf');}.text {    -fx-font-family: &quot;Montserrat&quot;;}" text="ID" GridPane.halignment="RIGHT" />
+                        <Label prefHeight="24.0" prefWidth="140.0" style="-fx-font-size: 12; -fx-font-weight: bold; -fx-text-fill: #6D6E71;" styleClass="\\@font-face {    font-family: 'Montserrat';    src: url('Montserrat-Bold.ttf');}.text {    -fx-font-family: &quot;Montserrat&quot;;}" text="Type" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+                        <Label prefHeight="24.0" prefWidth="140.0" style="-fx-font-size: 12; -fx-font-weight: bold; -fx-text-fill: #6D6E71;" styleClass="\\@font-face {    font-family: 'Montserrat';    src: url('Montserrat-Bold.ttf');}.text {    -fx-font-family: &quot;Montserrat&quot;;}" text="Key Money" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
+                        <JFXTextField fx:id="txtKeyMoney" focusColor="#0d009a" labelFloat="true" maxWidth="-Infinity" prefHeight="34.0" prefWidth="314.0" style="-fx-font-size: 12; -fx-font-weight: bold; -fx-text-fill: #6D6E71;" unFocusColor="#616161" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <JFXTextField fx:id="txtRoomTypeID" focusColor="#0d009a" labelFloat="true" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="44.0" prefWidth="269.0" style="-fx-font-size: 12; -fx-font-weight: bold; -fx-text-fill: #6D6E71;" unFocusColor="#616161" GridPane.columnIndex="1" />
+                        <JFXTextField fx:id="txtType" focusColor="#0d009a" labelFloat="true" maxWidth="-Infinity" prefHeight="37.0" prefWidth="308.0" style="-fx-font-size: 12; -fx-font-weight: bold; -fx-text-fill: #6D6E71;" unFocusColor="#616161" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Label prefHeight="24.0" prefWidth="140.0" style="-fx-font-size: 12; -fx-font-weight: bold; -fx-text-fill: #6D6E71;" styleClass="\\@font-face {    font-family: 'Montserrat';    src: url('Montserrat-Bold.ttf');}.text {    -fx-font-family: &quot;Montserrat&quot;;}" text="Qty" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
+                        <JFXTextField fx:id="txtQty" focusColor="#0d009a" labelFloat="true" maxWidth="-Infinity" prefHeight="34.0" prefWidth="314.0" style="-fx-font-size: 12; -fx-font-weight: bold; -fx-text-fill: #6D6E71;" unFocusColor="#616161" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                     </children>
+                  </GridPane>
+                  <JFXButton fx:id="btnCancel" buttonType="RAISED" layoutX="269.0" layoutY="11.0" onAction="#btnCancelOnAction" prefHeight="20.0" prefWidth="100.0" ripplerFill="#0d009a" style="-fx-background-color: #555390; -fx-background-radius: 10;" text="Cancel" textFill="WHITE">
+                     <font>
+                        <Font name="Calibri Bold" size="14.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </JFXButton>
+                  <JFXButton fx:id="btnSave" buttonType="RAISED" layoutX="284.0" layoutY="271.0" onAction="#btnSaveOnAction" prefHeight="20.0" prefWidth="100.0" ripplerFill="#0d009a" style="-fx-background-color: #555390; -fx-background-radius: 10;" text="Save" textFill="WHITE">
+                     <font>
+                        <Font name="Calibri Bold" size="14.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </JFXButton>
+               </children>
+               <effect>
+                  <DropShadow offsetX="4.0" offsetY="4.0" />
+               </effect>
+            </AnchorPane>
+            <Label layoutX="515.0" layoutY="14.0" text="Room Manage">
+               <font>
+                  <Font name="Times New Roman Bold Italic" size="29.0" />
+               </font>
+            </Label>
+         </children>
+         <effect>
+            <DropShadow color="#00517c" height="50.0" offsetX="10.0" offsetY="10.0" radius="24.5" width="50.0" />
+         </effect>
+      </AnchorPane>
+   </children>
 </AnchorPane>
