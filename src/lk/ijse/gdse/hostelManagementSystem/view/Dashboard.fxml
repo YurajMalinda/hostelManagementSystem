@@ -17,7 +17,7 @@
             <Image url="@assests/Background.jpg" />
          </image>
       </ImageView>
-      <ImageView layoutX="63.0" layoutY="86.0">
+      <ImageView layoutX="54.0" layoutY="56.0">
          <image>
             <Image url="@assests/previous.png" />
          </image>
@@ -25,7 +25,7 @@
             <DropShadow height="15.0" radius="7.0" width="15.0" />
          </effect>
       </ImageView>
-      <JFXButton buttonType="RAISED" layoutX="64.0" layoutY="86.0" onAction="#btnBackOnAction" prefHeight="30.0" prefWidth="30.0" ripplerFill="BLACK" style="-fx-background-radius: 50;" text="." textAlignment="CENTER" textFill="#8d8d8d" textOverrun="CENTER_ELLIPSIS" />
+      <JFXButton buttonType="RAISED" layoutX="54.0" layoutY="56.0" onAction="#btnBackOnAction" prefHeight="30.0" prefWidth="30.0" ripplerFill="BLACK" style="-fx-background-radius: 50;" text="." textAlignment="CENTER" textFill="#8d8d8d" textOverrun="CENTER_ELLIPSIS" />
       <Group layoutX="551.0" layoutY="160.0">
          <children>
             <Label layoutX="13.0" layoutY="113.0" text="We treat you like a family." textFill="WHITE">
@@ -52,7 +52,7 @@
       </Group>
       <AnchorPane layoutX="336.0" layoutY="330.0">
          <children>
-            <JFXButton alignment="BOTTOM_CENTER" buttonType="RAISED" layoutX="15.0" layoutY="11.0" onAction="#btnStudentOnAction" prefHeight="205.0" prefWidth="200.0" style="-fx-background-color: #aad6ff; -fx-background-radius: 20;">
+            <JFXButton alignment="BOTTOM_CENTER" buttonType="RAISED" layoutX="15.0" layoutY="11.0" onAction="#btnStudentOnAction" prefHeight="205.0" prefWidth="200.0" style="-fx-background-color: #fafcff; -fx-background-radius: 20;">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
@@ -69,7 +69,7 @@
       </AnchorPane>
       <AnchorPane layoutX="874.0" layoutY="330.0" prefHeight="216.0" prefWidth="215.0">
          <children>
-            <JFXButton alignment="BOTTOM_CENTER" buttonType="RAISED" layoutX="15.0" layoutY="11.0" onAction="#btnReservationsOnAction" prefHeight="205.0" prefWidth="200.0" style="-fx-background-color: #aad6ff; -fx-background-radius: 20;" text="Reservations">
+            <JFXButton alignment="BOTTOM_CENTER" buttonType="RAISED" layoutX="15.0" layoutY="11.0" onAction="#btnReservationsOnAction" prefHeight="205.0" prefWidth="200.0" style="-fx-background-color: #fafcff; -fx-background-radius: 20;" text="Reservations">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
@@ -95,7 +95,7 @@
       <JFXButton buttonType="RAISED" layoutX="1358.0" layoutY="86.0" onAction="#btnSettingsOnAction" prefHeight="30.0" prefWidth="30.0" ripplerFill="BLACK" style="-fx-background-radius: 50;" text="." textAlignment="CENTER" textFill="#8d8d8d" textOverrun="CENTER_ELLIPSIS" />
       <AnchorPane layoutX="605.0" layoutY="330.0">
          <children>
-            <JFXButton alignment="BOTTOM_CENTER" buttonType="RAISED" layoutX="15.0" layoutY="11.0" onAction="#btnRoomsOnAction" prefHeight="205.0" prefWidth="200.0" style="-fx-background-color: #aad6ff; -fx-background-radius: 20;" text="Rooms" textAlignment="CENTER">
+            <JFXButton alignment="BOTTOM_CENTER" buttonType="RAISED" layoutX="15.0" layoutY="11.0" onAction="#btnRoomsOnAction" prefHeight="205.0" prefWidth="200.0" style="-fx-background-color: #fafcff; -fx-background-radius: 20;" text="Rooms" textAlignment="CENTER">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
