@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="768.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.hostelManagementSystem.controller.DashboardController">
+   <children>
+      <ImageView fitHeight="768.0" fitWidth="1440.0">
+         <image>
+            <Image url="@assests/Background.jpg" />
+         </image>
+      </ImageView>
+      <ImageView layoutX="63.0" layoutY="86.0">
+         <image>
+            <Image url="@assests/previous.png" />
+         </image>
+         <effect>
+            <DropShadow height="15.0" radius="7.0" width="15.0" />
+         </effect>
+      </ImageView>
+      <JFXButton buttonType="RAISED" layoutX="64.0" layoutY="86.0" onAction="#btnBackOnAction" prefHeight="30.0" prefWidth="30.0" ripplerFill="BLACK" style="-fx-background-radius: 50;" text="." textAlignment="CENTER" textFill="#8d8d8d" textOverrun="CENTER_ELLIPSIS" />
+      <Group layoutX="551.0" layoutY="160.0">
+         <children>
+            <Label layoutX="13.0" layoutY="113.0" text="We treat you like a family." textFill="WHITE">
+               <font>
+                  <Font name="Times New Roman Bold Italic" size="30.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="113.0" fitWidth="113.0" layoutX="110.0">
+               <image>
+                  <Image url="@assests/hostel.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="64.0" fitWidth="102.0" layoutY="42.0">
+               <image>
+                  <Image url="@assests/remove.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="64.0" fitWidth="102.0" layoutX="228.0" layoutY="42.0">
+               <image>
+                  <Image url="@assests/remove.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Group>
+      <AnchorPane layoutX="336.0" layoutY="330.0">
+         <children>
+            <JFXButton alignment="BOTTOM_CENTER" buttonType="RAISED" layoutX="15.0" layoutY="11.0" onAction="#btnStudentOnAction" prefHeight="205.0" prefWidth="200.0" style="-fx-background-color: #aad6ff; -fx-background-radius: 20;">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </JFXButton>
+            <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="65.0" layoutY="31.0">
+               <image>
+                  <Image url="@assests/students.png" />
+               </image>
+            </ImageView>
+         </children>
+         <effect>
+            <DropShadow height="50.0" offsetX="10.0" offsetY="10.0" radius="24.5" width="50.0" />
+         </effect>
+      </AnchorPane>
+      <AnchorPane layoutX="874.0" layoutY="330.0" prefHeight="216.0" prefWidth="215.0">
+         <children>
+            <JFXButton alignment="BOTTOM_CENTER" buttonType="RAISED" layoutX="15.0" layoutY="11.0" onAction="#btnReservationsOnAction" prefHeight="205.0" prefWidth="200.0" style="-fx-background-color: #aad6ff; -fx-background-radius: 20;" text="Reservations">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </JFXButton>
+            <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="65.0" layoutY="31.0">
+               <image>
+                  <Image url="@assests/booking.png" />
+               </image>
+            </ImageView>
+         </children>
+         <effect>
+            <DropShadow height="50.0" offsetX="10.0" offsetY="10.0" radius="24.5" width="50.0" />
+         </effect>
+      </AnchorPane>
+      <ImageView fitHeight="28.0" fitWidth="28.0" layoutX="1358.0" layoutY="86.0">
+         <image>
+            <Image url="@assests/settings.png" />
+         </image>
+         <effect>
+            <DropShadow height="15.0" radius="7.0" width="15.0" />
+         </effect>
+      </ImageView>
+      <JFXButton buttonType="RAISED" layoutX="1358.0" layoutY="86.0" onAction="#btnSettingsOnAction" prefHeight="30.0" prefWidth="30.0" ripplerFill="BLACK" style="-fx-background-radius: 50;" text="." textAlignment="CENTER" textFill="#8d8d8d" textOverrun="CENTER_ELLIPSIS" />
+      <AnchorPane layoutX="605.0" layoutY="330.0">
+         <children>
+            <JFXButton alignment="BOTTOM_CENTER" buttonType="RAISED" layoutX="15.0" layoutY="11.0" onAction="#btnRoomsOnAction" prefHeight="205.0" prefWidth="200.0" style="-fx-background-color: #aad6ff; -fx-background-radius: 20;" text="Rooms" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </JFXButton>
+            <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="65.0" layoutY="31.0">
+               <image>
+                  <Image url="@assests/hotel.png" />
+               </image>
+            </ImageView>
+         </children>
+         <effect>
+            <DropShadow height="50.0" offsetX="10.0" offsetY="10.0" radius="24.5" width="50.0" />
+         </effect>
+      </AnchorPane>
+      <Line endX="587.0" layoutX="768.0" layoutY="685.0" opacity="0.5" startX="-684.0" stroke="#aad6ff" strokeWidth="2.0" />
+   </children>
+</AnchorPane>
