@@ -18,6 +18,7 @@
     <orderEntry type="library" name="antlr-2.7.7" level="project" />
     <orderEntry type="library" name="javafx-swt" level="project" />
     <orderEntry type="library" name="mysql-connector-j-8.0.32" level="project" />
-    <orderEntry type="library" name="jfoenix-8.0.10" level="project" />
+    <orderEntry type="library" name="jfoenix-9.0.10" level="project" />
+    <orderEntry type="library" name="AnimateFX-1.2.3" level="project" />
   </component>
 </module>

@@ -8,6 +8,11 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.layout.AnchorPane;
+import lk.ijse.gdse.hostelManagementSystem.util.Navigation;
+import lk.ijse.gdse.hostelManagementSystem.util.Routes;
+
+import java.io.IOException;
 
 public class StudentController {
     public JFXButton btnEdit;
@@ -31,8 +36,10 @@ public class StudentController {
     public TableColumn colContact;
     public TableColumn colDOB;
     public TableColumn colGender;
+    public AnchorPane pane;
 
-    public void btnBackOnAction(ActionEvent actionEvent) {
+    public void btnBackOnAction(ActionEvent actionEvent) throws IOException {
+        Navigation.navigate(Routes.DASHBOARD,pane);
     }
 
     public void btnEditOnAction(ActionEvent actionEvent) {

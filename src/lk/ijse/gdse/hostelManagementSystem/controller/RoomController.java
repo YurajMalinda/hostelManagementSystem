@@ -5,6 +5,7 @@ import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.layout.AnchorPane;
 
 public class RoomController {
     public JFXTextField txtSearch;
@@ -22,6 +23,7 @@ public class RoomController {
     public JFXTextField txtQty;
     public JFXButton btnCancel;
     public JFXButton btnSave;
+    public AnchorPane pane;
 
     public void btnBackOnAction(ActionEvent actionEvent) {
     }

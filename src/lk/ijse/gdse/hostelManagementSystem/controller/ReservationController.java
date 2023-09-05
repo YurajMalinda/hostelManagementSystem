@@ -8,6 +8,7 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.layout.AnchorPane;
 
 public class ReservationController {
     public JFXTextField txtSearchReservation;
@@ -46,6 +47,7 @@ public class ReservationController {
     public JFXButton btnDelete;
     public JFXButton btnCancel;
     public JFXButton btnReserve;
+    public AnchorPane pane;
 
     public void btnBackOnAction(ActionEvent actionEvent) {
     }

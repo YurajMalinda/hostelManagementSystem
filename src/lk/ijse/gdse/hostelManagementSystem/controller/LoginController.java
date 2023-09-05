@@ -5,12 +5,14 @@ import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.AnchorPane;
 
 public class LoginController {
     public JFXTextField txtUserName;
     public JFXPasswordField txtPassword;
     public JFXTextField showPassword;
     public ToggleButton toggleButton;
+    public AnchorPane pane;
 
     public void passwordFieldKeyTyped(KeyEvent keyEvent) {
     }

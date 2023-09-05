@@ -19,6 +19,7 @@ public class ChangePasswordController {
     public Label shownPassword;
     public ImageView imgPasswordView;
     public ToggleButton toggleButton;
+    public AnchorPane pane;
 
     public void btnBackOnAction(ActionEvent actionEvent) {
     }
