@@ -31,10 +31,10 @@
          </effect>
       </ImageView>
       <JFXButton buttonType="RAISED" layoutX="54.0" layoutY="56.0" onAction="#btnBackOnAction" prefHeight="30.0" prefWidth="30.0" ripplerFill="BLACK" style="-fx-background-radius: 50;" text="." textAlignment="CENTER" textFill="#8d8d8d" textOverrun="CENTER_ELLIPSIS" />
-      <AnchorPane layoutX="117.0" layoutY="91.0" prefHeight="587.0" prefWidth="1207.0" style="-fx-background-color: #e6f1ff; -fx-background-radius: 20;">
+      <AnchorPane layoutX="117.0" layoutY="91.0" prefHeight="587.0" prefWidth="1207.0" style="-fx-background-color: #dcecff; -fx-background-radius: 10;">
          <children>
             <JFXTextField fx:id="txtSearch" focusColor="#0d009a" labelFloat="true" layoutX="791.0" layoutY="30.0" prefHeight="34.0" prefWidth="402.0" promptText="Search" style="-fx-font-size: 12; -fx-font-weight: bold; -fx-text-fill: #6D6E71;" unFocusColor="#6d6e71" />
-            <TableView fx:id="tblRooms" editable="true" layoutX="455.0" layoutY="75.0" prefHeight="498.0" prefWidth="738.0" style="-fx-font-size: 12; -fx-background-color: #ffff;">
+            <TableView fx:id="tblRooms" editable="true" layoutX="455.0" layoutY="75.0" prefHeight="498.0" prefWidth="738.0" style="-fx-font-size: 12; -fx-background-color: #ffff; -fx-background-radius: 10;">
                <columns>
                   <TableColumn fx:id="colRoomTypeID" prefWidth="164.0" style="-fx-font-weight: bold;" text="ID" />
                   <TableColumn fx:id="colType" prefWidth="172.0" text="Type" />
@@ -42,14 +42,14 @@
                   <TableColumn fx:id="colQty" minWidth="0.0" prefWidth="193.0" text="Qty." />
                </columns>
                <effect>
-                  <DropShadow height="15.0" radius="7.0" width="15.0" />
+                  <DropShadow height="10.0" radius="4.5" width="10.0" />
                </effect>
             </TableView>
-            <AnchorPane layoutX="22.0" layoutY="75.0" prefHeight="442.0" prefWidth="393.0" style="-fx-background-color: #ffff; -fx-background-radius: 20;">
+            <AnchorPane layoutX="22.0" layoutY="75.0" prefHeight="442.0" prefWidth="400.0" style="-fx-background-color: #ffff; -fx-background-radius: 10;">
                <children>
-                  <JFXButton fx:id="btnEdit" buttonType="RAISED" layoutX="146.0" layoutY="11.0" onAction="#btnEditOnAction" prefHeight="20.0" prefWidth="100.0" ripplerFill="#0d009a" style="-fx-background-color: #555390; -fx-background-radius: 10;" text="Edit" textFill="WHITE">
+                  <JFXButton fx:id="btnEdit" buttonType="RAISED" layoutX="146.0" layoutY="11.0" onAction="#btnEditOnAction" prefHeight="20.0" prefWidth="100.0" ripplerFill="#0d009a" style="-fx-background-color: #555390; -fx-background-radius: 10;" text="Update" textFill="WHITE">
                      <font>
-                        <Font name="Calibri Bold" size="14.0" />
+                        <Font name="System Bold" size="14.0" />
                      </font>
                      <cursor>
                         <Cursor fx:constant="HAND" />
@@ -57,7 +57,7 @@
                   </JFXButton>
                   <JFXButton fx:id="btnDelete" buttonType="RAISED" layoutX="27.0" layoutY="271.0" onAction="#btnDeleteOnAction" prefHeight="20.0" prefWidth="100.0" ripplerFill="#0d009a" style="-fx-background-color: #ff4848; -fx-background-radius: 10;" text="Delete" textFill="WHITE">
                      <font>
-                        <Font name="Calibri Bold" size="14.0" />
+                        <Font name="System Bold" size="14.0" />
                      </font>
                      <cursor>
                         <Cursor fx:constant="HAND" />
@@ -65,7 +65,7 @@
                   </JFXButton>
                   <JFXButton fx:id="btnNew" buttonType="RAISED" layoutX="23.0" layoutY="11.0" onAction="#btnNewOnAction" prefHeight="20.0" prefWidth="100.0" ripplerFill="#0d009a" style="-fx-background-color: #555390; -fx-background-radius: 10;" text="+ New" textFill="WHITE">
                      <font>
-                        <Font name="Calibri Bold" size="14.0" />
+                        <Font name="System Bold" size="14.0" />
                      </font>
                      <cursor>
                         <Cursor fx:constant="HAND" />
@@ -95,7 +95,7 @@
                   </GridPane>
                   <JFXButton fx:id="btnCancel" buttonType="RAISED" layoutX="269.0" layoutY="11.0" onAction="#btnCancelOnAction" prefHeight="20.0" prefWidth="100.0" ripplerFill="#0d009a" style="-fx-background-color: #555390; -fx-background-radius: 10;" text="Cancel" textFill="WHITE">
                      <font>
-                        <Font name="Calibri Bold" size="14.0" />
+                        <Font name="System Bold" size="14.0" />
                      </font>
                      <cursor>
                         <Cursor fx:constant="HAND" />
@@ -103,7 +103,7 @@
                   </JFXButton>
                   <JFXButton fx:id="btnSave" buttonType="RAISED" layoutX="284.0" layoutY="271.0" onAction="#btnSaveOnAction" prefHeight="20.0" prefWidth="100.0" ripplerFill="#0d009a" style="-fx-background-color: #555390; -fx-background-radius: 10;" text="Save" textFill="WHITE">
                      <font>
-                        <Font name="Calibri Bold" size="14.0" />
+                        <Font name="System Bold" size="14.0" />
                      </font>
                      <cursor>
                         <Cursor fx:constant="HAND" />
@@ -111,7 +111,7 @@
                   </JFXButton>
                </children>
                <effect>
-                  <DropShadow offsetX="4.0" offsetY="4.0" />
+                  <DropShadow height="10.0" radius="4.5" width="10.0" />
                </effect>
             </AnchorPane>
             <Label layoutX="515.0" layoutY="14.0" text="Room Manage">
