@@ -1,2 +1,4 @@
-package lk.ijse.gdse.hostelManagementSystem.bo.custom;public interface UserDAO {
+package lk.ijse.gdse.hostelManagementSystem.bo.custom;
+
+public interface UserBO {
 }

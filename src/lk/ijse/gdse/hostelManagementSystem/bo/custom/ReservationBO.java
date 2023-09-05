@@ -1,2 +1,4 @@
-package lk.ijse.gdse.hostelManagementSystem.bo.custom;public interface ReservationBO {
+package lk.ijse.gdse.hostelManagementSystem.bo.custom;
+
+public interface ReservationBO {
 }

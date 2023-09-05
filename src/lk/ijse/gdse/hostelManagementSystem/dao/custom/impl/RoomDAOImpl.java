@@ -1,2 +1,4 @@
-package lk.ijse.gdse.hostelManagementSystem.dao.custom.impl;public class RoomDAOImpl {
+package lk.ijse.gdse.hostelManagementSystem.dao.custom.impl;
+
+public class RoomDAOImpl {
 }

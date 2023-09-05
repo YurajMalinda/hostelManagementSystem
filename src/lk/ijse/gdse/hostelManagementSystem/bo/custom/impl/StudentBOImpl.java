@@ -1,2 +1,4 @@
-package lk.ijse.gdse.hostelManagementSystem.bo.custom.impl;public class StudentBOImpl {
+package lk.ijse.gdse.hostelManagementSystem.bo.custom.impl;
+
+public class StudentBOImpl {
 }
