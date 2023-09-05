@@ -61,7 +61,7 @@
                </font>
             </Label>
             <JFXPasswordField fx:id="txtPassword" focusTraversable="false" layoutX="14.0" layoutY="222.0" onKeyTyped="#passwordFieldKeyTyped" prefHeight="45.0" prefWidth="340.0" promptText="Password" />
-            <ImageView layoutX="316.0" layoutY="233.0">
+            <ImageView fx:id="imgPasswordView" layoutX="316.0" layoutY="233.0">
                <image>
                   <Image url="@assests/view.png" />
                </image>
