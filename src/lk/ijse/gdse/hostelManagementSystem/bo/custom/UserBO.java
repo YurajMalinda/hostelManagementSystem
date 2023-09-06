@@ -4,4 +4,6 @@ public interface UserBO {
     String getUserName(String id);
 
     String getPassword(String id);
+
+    boolean updateUserDetails(String newUName, String newPword);
 }
