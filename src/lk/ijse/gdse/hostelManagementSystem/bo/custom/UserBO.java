@@ -1,6 +1,8 @@
 package lk.ijse.gdse.hostelManagementSystem.bo.custom;
 
-public interface UserBO {
+import lk.ijse.gdse.hostelManagementSystem.bo.SuperBO;
+
+public interface UserBO extends SuperBO {
     String getUserName(String id);
 
     String getPassword(String id);
