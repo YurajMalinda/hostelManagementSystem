@@ -12,7 +12,7 @@ public class AppInitializer extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/lk/ijse/gdse/hostelManagementSystem/view/Dashboard.fxml"))));
+        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/lk/ijse/gdse/hostelManagementSystem/view/Login.fxml"))));
         stage.show();
         stage.setResizable(false);
         stage.setY(0);

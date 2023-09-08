@@ -18,7 +18,7 @@ public class BOFactory {
     public enum Type {
         STUDENT,
         ROOM,
-        RECEPTION,
+        RESERVATION,
         USER
     }
 
@@ -28,7 +28,7 @@ public class BOFactory {
                 return new StudentBOImpl();
             case ROOM:
                 return new RoomBOImpl();
-            case RECEPTION:
+            case RESERVATION:
                 return new ReservationBOImpl();
             case USER:
                 return new UserBOImpl();
