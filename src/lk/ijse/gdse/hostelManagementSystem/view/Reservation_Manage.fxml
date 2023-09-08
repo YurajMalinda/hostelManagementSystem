@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXDatePicker?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.Cursor?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TableColumn?>
@@ -167,7 +167,6 @@
                         <Label prefHeight="24.0" prefWidth="139.0" style="-fx-font-size: 12; -fx-font-weight: bold; -fx-text-fill: #6D6E71;" styleClass="\\@font-face {    font-family: 'Montserrat';    src: url('Montserrat-Bold.ttf');}.text {    -fx-font-family: &quot;Montserrat&quot;;}" text="Res. Date" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
                         <JFXTextField fx:id="txtStudentID" focusColor="#0d009a" labelFloat="true" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="134.0" style="-fx-font-size: 12; -fx-font-weight: bold; -fx-text-fill: #6D6E71;" unFocusColor="#616161" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                         <Label layoutX="10.0" layoutY="297.0" prefHeight="24.0" prefWidth="139.0" style="-fx-font-size: 12; -fx-font-weight: bold; -fx-text-fill: #6D6E71;" styleClass="\\@font-face {    font-family: 'Montserrat';    src: url('Montserrat-Bold.ttf');}.text {    -fx-font-family: &quot;Montserrat&quot;;}" text="Payment Status" GridPane.halignment="RIGHT" GridPane.rowIndex="4" />
-                        <JFXDatePicker fx:id="dateDate" defaultColor="#003e9e" prefHeight="28.0" prefWidth="141.0" style="-fx-font-size: 12;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                         <GridPane prefHeight="44.0" prefWidth="144.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
                            <columnConstraints>
                               <ColumnConstraints hgrow="SOMETIMES" maxWidth="128.0" minWidth="10.0" prefWidth="69.0" />
@@ -197,6 +196,7 @@
                         <Label layoutX="10.0" layoutY="15.0" prefHeight="24.0" prefWidth="140.0" style="-fx-font-size: 12; -fx-font-weight: bold; -fx-text-fill: #6D6E71;" styleClass="\\@font-face {    font-family: 'Montserrat';    src: url('Montserrat-Bold.ttf');}.text {    -fx-font-family: &quot;Montserrat&quot;;}" text="Room ID" GridPane.rowIndex="1" />
                         <JFXTextField fx:id="txtResID" focusColor="#0d009a" labelFloat="true" layoutX="118.0" layoutY="82.0" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="134.0" style="-fx-font-size: 12; -fx-font-weight: bold; -fx-text-fill: #6D6E71;" unFocusColor="#616161" GridPane.columnIndex="1" />
                         <JFXTextField fx:id="txtRoomID" focusColor="#0d009a" labelFloat="true" layoutX="118.0" layoutY="14.0" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="134.0" style="-fx-font-size: 12; -fx-font-weight: bold; -fx-text-fill: #6D6E71;" unFocusColor="#616161" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <DatePicker fx:id="dateDate" prefHeight="20.0" prefWidth="191.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                      </children>
                   </GridPane>
                   <JFXButton fx:id="btnDelete" buttonType="RAISED" layoutX="14.0" layoutY="218.0" onAction="#btnDeleteOnAction" prefHeight="20.0" prefWidth="100.0" ripplerFill="#a5a6a8" style="-fx-background-color: #ff4848; -fx-background-radius: 10;" text="Delete" textFill="WHITE">

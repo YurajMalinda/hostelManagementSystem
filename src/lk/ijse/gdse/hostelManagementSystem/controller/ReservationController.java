@@ -55,7 +55,7 @@ public class ReservationController {
     public TableColumn colStdID;
     public TableColumn colStdName;
     public JFXTextField txtStudentID;
-    public JFXDatePicker dateDate;
+    public DatePicker dateDate;
     public RadioButton rbPendingStatus;
     public ToggleGroup PaymentStatus;
     public RadioButton rbPaidStatus;

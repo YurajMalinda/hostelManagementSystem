@@ -1,6 +1,6 @@
 package lk.ijse.gdse.hostelManagementSystem.util;
 
-import animatefx.animation.FadeIn;
+import animatefx.animation.*;
 import javafx.animation.FadeTransition;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
@@ -48,7 +48,7 @@ public class Navigation {
     public static void initUI(String location) throws IOException {
         Navigation.pane.getChildren()
                 .add(FXMLLoader.load(Navigation.class.getResource("/lk/ijse/gdse/hostelManagementSystem/view/"+location)));
-        new FadeIn(pane).setSpeed(3).play();
+        new FadeIn(pane).setSpeed(5).play();
 
     }
 

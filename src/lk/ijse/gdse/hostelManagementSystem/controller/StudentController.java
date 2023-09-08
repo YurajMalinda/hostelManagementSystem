@@ -34,7 +34,7 @@ public class StudentController {
     public RadioButton rbFemale;
     public ToggleGroup gender;
     public RadioButton rbMale;
-    public JFXDatePicker txtDOB;
+    public DatePicker txtDOB;
     public JFXButton btnCancel;
     public JFXButton btnSave;
     public JFXTextField txtSearch;

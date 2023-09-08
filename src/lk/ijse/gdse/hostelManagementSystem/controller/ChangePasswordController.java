@@ -30,7 +30,7 @@ public class ChangePasswordController {
     public AnchorPane changePane;
     public JFXPasswordField newPassword;
     public JFXTextField newUsername;
-    public Label shownPassword;
+    public JFXTextField shownPassword;
     public ImageView imgPasswordView;
     public ToggleButton toggleButton;
     public AnchorPane pane;
@@ -41,6 +41,7 @@ public class ChangePasswordController {
         changePane.toBack();
         confirmPane.toFront();
         shownPassword.setVisible(false);
+        imgPasswordView.setVisible(true);
     }
 
     public void btnBackOnAction(ActionEvent actionEvent) throws IOException {
@@ -151,6 +152,7 @@ public class ChangePasswordController {
     public void toggleButton(ActionEvent actionEvent) {
         if(toggleButton.isSelected()){
             shownPassword.setVisible(true);
+            newPassword.setVisible(false);
             shownPassword.textProperty().bind(Bindings.concat(newPassword.getText()));
             toggleButton.setText("Hide");
             imgPasswordView.setImage(new Image("lk/ijse/gdse/hostelManagementSystem/view/assests/hide.png"));

@@ -60,13 +60,13 @@
                   <Font name="Lucida Sans Demibold Roman" size="16.0" />
                </font>
             </Label>
-            <JFXPasswordField fx:id="txtPassword" focusTraversable="false" layoutX="14.0" layoutY="222.0" onKeyTyped="#passwordFieldKeyTyped" prefHeight="45.0" prefWidth="340.0" promptText="Password" />
+            <JFXPasswordField fx:id="txtPassword" focusTraversable="false" layoutX="15.0" layoutY="222.0" onKeyTyped="#passwordFieldKeyTyped" prefHeight="45.0" prefWidth="340.0" promptText="Password" />
             <ImageView fx:id="imgPasswordView" layoutX="316.0" layoutY="233.0">
                <image>
                   <Image url="@assests/view.png" />
                </image>
             </ImageView>
-            <JFXTextField fx:id="showPassword" focusTraversable="false" layoutX="14.0" layoutY="223.0" prefHeight="45.0" prefWidth="340.0" />
+            <JFXTextField fx:id="showPassword" focusTraversable="false" layoutX="15.0" layoutY="222.0" prefHeight="45.0" prefWidth="340.0" />
             <ToggleButton fx:id="toggleButton" focusTraversable="false" layoutX="312.0" layoutY="229.0" mnemonicParsing="false" onAction="#btnToggleOnAction" prefHeight="24.0" prefWidth="32.0" style="-fx-opacity: 0;" text="show" />
             <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="72.0" layoutY="328.0" onAction="#btnLoginOnAction" prefHeight="45.0" prefWidth="236.0" style="-fx-background-color: #555390; -fx-background-radius: 10;" text="LogIn" textFill="WHITE">
                <font>
