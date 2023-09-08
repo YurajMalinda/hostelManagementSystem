@@ -1,11 +1,12 @@
 package lk.ijse.gdse.hostelManagementSystem.dto;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
 public class RoomDTO {
     private String room_type_id;
     private String type;

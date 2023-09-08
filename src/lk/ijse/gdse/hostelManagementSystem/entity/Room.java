@@ -9,7 +9,6 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
 
 @Entity
 public class Room {
@@ -19,6 +18,13 @@ public class Room {
     private String key_money;
     private int qty;
 
-    @OneToMany (mappedBy = "room", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "room", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Reservation> reservationList = new ArrayList<>();
+
+    public Room(String room_type_id, String type, String key_money, int qty) {
+        this.room_type_id = room_type_id;
+        this.type = type;
+        this.key_money = key_money;
+        this.qty = qty;
+    }
 }

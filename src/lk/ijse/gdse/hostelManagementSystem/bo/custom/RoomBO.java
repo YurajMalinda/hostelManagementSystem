@@ -1,4 +1,6 @@
 package lk.ijse.gdse.hostelManagementSystem.bo.custom;
 
-public interface RoomBO {
+import lk.ijse.gdse.hostelManagementSystem.bo.SuperBO;
+
+public interface RoomBO extends SuperBO {
 }

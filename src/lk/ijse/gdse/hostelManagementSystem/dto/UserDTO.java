@@ -1,11 +1,12 @@
 package lk.ijse.gdse.hostelManagementSystem.dto;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
 public class UserDTO {
     private String id;
     private String name;

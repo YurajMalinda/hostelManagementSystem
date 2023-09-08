@@ -49,28 +49,25 @@ public class StudentController {
 
     StudentBO studentBO = (StudentBO) BOFactory.getBoFactory().getBO(BOFactory.Type.STUDENT);
 
-    public void initialize(){
+    public void initialize() {
         txtID.setEditable(false);
 
-        colID.setCellValueFactory(new PropertyValueFactory<>("student_id"));
+        colID.setCellValueFactory(new PropertyValueFactory<>("id"));
         colName.setCellValueFactory(new PropertyValueFactory<>("name"));
         colAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
         colContact.setCellValueFactory(new PropertyValueFactory<>("contact_no"));
         colDOB.setCellValueFactory(new PropertyValueFactory<>("dob"));
         colGender.setCellValueFactory(new PropertyValueFactory<>("gender"));
 
+        makeEditableTxtField(false);
         txtID.setEditable(false);
-        txtName.setEditable(false);
-        txtAddress.setEditable(false);
-        txtContact.setEditable(false);
-        txtDOB.setEditable(false);
         btnDelete.setDisable(true);
         btnCancel.setDisable(true);
         btnSave.setDisable(true);
         btnEdit.setDisable(true);
 
         tblStudent.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-            if (newValue!= null) {
+            if (newValue != null) {
                 setData((StudentDTO) newValue);
                 btnDelete.setDisable(true);
                 btnCancel.setDisable(true);
@@ -81,27 +78,36 @@ public class StudentController {
 
         txtSearch.textProperty().addListener((observable, oldValue, newValue) -> {
             loadStudentData(newValue);
-            txtID.setEditable(false);
-            txtName.setEditable(false);
-            txtAddress.setEditable(false);
-            txtContact.setEditable(false);
-            txtDOB.setEditable(false);
+            makeEditableTxtField(false);
         });
 
         loadStudentData("");
     }
 
-    private void loadStudentData(String searchId) {
-        ObservableList<StudentDTO> List = FXCollections.observableArrayList();
+    private void loadStudentData(String SearchID) {
+        ObservableList<StudentDTO> list = FXCollections.observableArrayList();
 
         ArrayList<StudentDTO> studentDTOS = studentBO.getAllStudent();
-        for (StudentDTO std : studentDTOS){
-            if(std.getId().contains(searchId) || std.getName().contains(searchId) || std.getAddress().contains(searchId)){
-                StudentDTO studentDTO = new StudentDTO(std.getId(), std.getName(), std.getAddress(), std.getContact_no(), std.getDob(), std.getGender());
-                List.add(studentDTO);
+        for (StudentDTO std : studentDTOS) {
+            if (std.getId().contains(SearchID) ||
+                    std.getName().contains(SearchID) ||
+                    std.getAddress().contains(SearchID)) {
+                StudentDTO studentDTO = new StudentDTO(std.getId(),
+                        std.getName(), std.getAddress(),
+                        std.getContact_no(),
+                        std.getDob(),
+                        std.getGender());
+                list.add(studentDTO);
             }
         }
-        tblStudent.setItems(List);
+        tblStudent.setItems(list);
+    }
+
+    private void makeEditableTxtField(boolean b) {
+        txtName.setEditable(b);
+        txtAddress.setEditable(b);
+        txtContact.setEditable(b);
+        txtDOB.setEditable(b);
     }
 
     private void setData(StudentDTO newValue) {
@@ -117,103 +123,20 @@ public class StudentController {
         }
     }
 
-    public void btnBackOnAction(ActionEvent actionEvent) throws IOException {
-        Navigation.navigate(Routes.DASHBOARD,pane);
-    }
-
-    public void btnEditOnAction(ActionEvent actionEvent) {
-        if (!txtID.getText().equals("")) {
-            btnDelete.setDisable(false);
-            btnCancel.setDisable(false);
-            btnSave.setDisable(false);
-            btnSave.setText("Update");
-            txtID.setEditable(true);
-            txtName.setEditable(true);
-            txtAddress.setEditable(true);
-            txtContact.setEditable(true);
-            txtDOB.setEditable(true);
-        } else {
-            new Alert(Alert.AlertType.ERROR, "Not selected !").show();
-        }
-    }
-
-    public void btnDeleteOnAction(ActionEvent actionEvent) {
-        Alert alert = new Alert(Alert.AlertType.WARNING, "Deleted Selected ?", ButtonType.YES, ButtonType.NO);
-        Optional<ButtonType> result = alert.showAndWait();
-        if (result.get() == ButtonType.YES) {
-            String studentId = txtID.getText();
-
-            StudentDTO studentDTO = new StudentDTO();
-            studentDTO.setId(studentId);
-
-            Boolean isAdded = studentBO.deleteStudent(studentDTO);
-
-            if (isAdded) {
-                new Alert(Alert.AlertType.INFORMATION, " Student Deleted ! ").show();
-                clearFields();
-            } else {
-                new Alert(Alert.AlertType.ERROR, " Error ! ").show();
-            }
-        }
-
-        loadStudentData("");
-    }
-
-    private void clearFields() {
-        txtID.clear();
-        txtName.clear();
-        txtAddress.clear();
-        txtContact.clear();
-        txtDOB.setValue(LocalDate.parse("2000-01-01"));
-        rbMale.setSelected(true);
-    }
-
-    public void btnNewOnAction(ActionEvent actionEvent) {
-        txtID.setEditable(true);
-        txtName.setEditable(true);
-        txtAddress.setEditable(true);
-        txtContact.setEditable(true);
-        txtDOB.setEditable(true);
-        clearFields();
-
-        btnEdit.setDisable(true);
-        btnDelete.setDisable(true);
-        btnCancel.setDisable(false);
-        btnSave.setDisable(false);
-        btnSave.setText("Save");
-        String nextID = generateNextID(studentBO.getCurrentID());
-        txtID.setText(nextID);
-        txtName.requestFocus();
-    }
-
-    private String generateNextID(String currentID) {
-        if (currentID != null) {
-            String[] ids = currentID.split("S0");
-            int id = Integer.parseInt(ids[1]);
-            id += 1;
-
-            return "S0" + id;
-        }
-        return "S01";
-    }
-
-    public void btnCancelOnAction(ActionEvent actionEvent) {
-        clearFields();
-    }
-
     public void btnSaveOnAction(ActionEvent actionEvent) {
-        if(!txtName.getText().equals("") || txtID.getText().equals("") || txtContact.getText().equals("")){
-            String id = txtID.getText();
-            String name = txtName.getText();
-            String address = txtAddress.getText();
-            String contact = txtContact.getText();
-            String dob = txtDOB.getValue().toString();
+        if (!txtName.getText().equals("") || txtID.getText().equals("") || txtContact.getText().equals("")) {
+            String nameText = txtName.getText();
+            String addressText = txtAddress.getText();
+            String contactText = txtContact.getText();
+            String idText = txtID.getText();
+            String dobText = txtDOB.getValue().toString();
             RadioButton rb = (RadioButton) gender.getSelectedToggle();
-            String gender = rb.getText();
+            String genderText = rb.getText();
 
-            if(isValidName() && isValidAddress() && isValidContact()){
-                if(btnSave.getText().equals("Save")){
-                    StudentDTO studentDTO = new StudentDTO(id, name, address, contact, dob, gender);
+            // regex
+            if (isValidName() && isValidAddress() && isValidContact()) {
+                if (btnSave.getText().equals("Save")) {
+                    StudentDTO studentDTO = new StudentDTO(idText, nameText, addressText, contactText, dobText, genderText);
                     Boolean isAdded = studentBO.addStudent(studentDTO);
 
                     if (isAdded) {
@@ -222,8 +145,9 @@ public class StudentController {
                         new Alert(Alert.AlertType.ERROR, " Error ! ").show();
                     }
                 }
-                if(btnSave.getText().equals("Update")){
-                    StudentDTO studentDTO = new StudentDTO(id, name, address, contact, dob, gender);
+
+                if (btnSave.getText().equals("Update")) {
+                    StudentDTO studentDTO = new StudentDTO(idText, nameText, addressText, contactText, dobText, genderText);
                     Boolean isUpdated = studentBO.updateStudent(studentDTO);
 
                     if (isUpdated) {
@@ -231,10 +155,12 @@ public class StudentController {
                         clearFields();
                     } else {
                         new Alert(Alert.AlertType.ERROR, " Error ! ").show();
+                        clearFields();
                     }
                 }
                 loadStudentData("");
-            }else {
+
+            } else {
                 new Alert(Alert.AlertType.WARNING, "Fill data !").show();
             }
         }
@@ -283,5 +209,83 @@ public class StudentController {
             shakeUserName.play();
             return false;
         }
+    }
+
+    public void btnDeleteOnAction(ActionEvent actionEvent) {
+        Alert alert = new Alert(Alert.AlertType.WARNING, "Deleted Selected ?", ButtonType.YES, ButtonType.NO);
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.get() == ButtonType.YES) {
+            String idText = txtID.getText();
+
+            StudentDTO studentDTO = new StudentDTO();
+            studentDTO.setId(idText);
+
+            Boolean isAdded = studentBO.deleteStudent(studentDTO);
+
+            if (isAdded) {
+                new Alert(Alert.AlertType.INFORMATION, " Student Deleted ! ").show();
+                clearFields();
+            } else {
+                new Alert(Alert.AlertType.ERROR, " Error ! ").show();
+            }
+        }
+
+        loadStudentData("");
+    }
+
+
+    public void btnEditOnAction(ActionEvent actionEvent) {
+        if (!txtID.getText().equals("")) {
+            btnDelete.setDisable(false);
+            btnCancel.setDisable(false);
+            btnSave.setDisable(false);
+            btnSave.setText("Update");
+            makeEditableTxtField(true);
+
+        } else {
+            new Alert(Alert.AlertType.ERROR, "Not selected !").show();
+        }
+    }
+
+    public void btnNewOnAction(ActionEvent actionEvent) {
+        makeEditableTxtField(true);
+        clearFields();
+
+        btnEdit.setDisable(true);
+        btnDelete.setDisable(true);
+        btnCancel.setDisable(false);
+        btnSave.setDisable(false);
+        btnSave.setText("Save");
+        String nextID = generateNextID(studentBO.getCurrentID());
+        txtID.setText(nextID);
+        txtName.requestFocus();
+    }
+
+    private void clearFields() {
+        txtID.clear();
+        txtName.clear();
+        txtAddress.clear();
+        txtContact.clear();
+        txtDOB.setValue(LocalDate.now());
+        rbMale.setSelected(true);
+    }
+
+    private String generateNextID(String currentID) {
+        if (currentID != null) {
+            String[] ids = currentID.split("S0");
+            int id = Integer.parseInt(ids[1]);
+            id += 1;
+
+            return "S0" + id;
+        }
+        return "S01";
+    }
+
+    public void btnCancelOnAction(ActionEvent actionEvent) throws IOException {
+        clearFields();
+    }
+
+    public void btnBackOnAction(ActionEvent actionEvent) throws IOException {
+        Navigation.navigate(Routes.DASHBOARD, pane);
     }
 }

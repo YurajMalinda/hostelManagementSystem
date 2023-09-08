@@ -4,17 +4,17 @@ import lombok.*;
 
 import javax.persistence.*;
 
-@Data
-@AllArgsConstructor
+@Getter
+@Setter
 @NoArgsConstructor
-@ToString
+@AllArgsConstructor
 
 @Entity
 public class Reservation {
     @Id
     private String res_id;
     @Column(columnDefinition = "DATE")
-    private String date;
+    private String res_date;
     private String status;
 
     @ManyToOne

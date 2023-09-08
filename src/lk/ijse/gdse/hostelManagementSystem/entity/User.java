@@ -1,14 +1,16 @@
 package lk.ijse.gdse.hostelManagementSystem.entity;
 
-import lombok.*;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
-@NoArgsConstructor
-@AllArgsConstructor
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 @Data
-@ToString
+@AllArgsConstructor
+@NoArgsConstructor
 
 @Entity
 public class User {
@@ -17,3 +19,4 @@ public class User {
     private String name;
     private String password;
 }
+

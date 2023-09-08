@@ -6,6 +6,7 @@ import lk.ijse.gdse.hostelManagementSystem.util.SessionFactoryConfig;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.NativeQuery;
+import org.hibernate.query.Query;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,27 +17,12 @@ public class StudentDAOImpl implements StudentDAO {
         Session session = SessionFactoryConfig.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
 
-        try{
-            String sql = "SELECT * FROM student ORDER BY CAST(SUBSTRING(id, 2) AS UNSIGNED)";
-            NativeQuery sqlQuery = session.createSQLQuery(sql);
-
-            sqlQuery.addEntity(Student.class);
-
-            List<Student> studentList = sqlQuery.list();
-            ArrayList<Student> studentData = new ArrayList<>();
-
-            for(Student student : studentList){
-                studentData.add(student);
-            }
-            transaction.commit();
-            session.close();
-            return studentData;
-        }catch (Exception ex){
-            transaction.rollback();
-            session.close();
-            return null;
-        }
-
+        ArrayList<Student> allStudents;
+        Query query = session.createQuery("FROM Student ");
+        allStudents = (ArrayList<Student>) query.list();
+        transaction.commit();
+        session.close();
+        return allStudents;
     }
 
     @Override
@@ -96,6 +82,7 @@ public class StudentDAOImpl implements StudentDAO {
         Session session = SessionFactoryConfig.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
 
+        // session.createQuery("FROM employee ORDER BY CAST(SUBSTRING(EmpID, 2) AS UNSIGNED) DESC LIMIT 1");
         try{
             String sql = "SELECT * FROM student ORDER BY CAST(SUBSTRING(id, 2) AS UNSIGNED) DESC LIMIT 1";
             NativeQuery sqlQuery = session.createSQLQuery(sql);
@@ -105,13 +92,13 @@ public class StudentDAOImpl implements StudentDAO {
             List <Student> studentList = sqlQuery.list();
             String id = null;
             for(Student student : studentList){
-                id = student.getStudent_id();
+                id = student.getId();
             }
             transaction.commit();
             session.close();
             return id;
 
-        }catch (Exception e){
+        }catch (Exception e) {
             transaction.commit();
             session.close();
             return null;

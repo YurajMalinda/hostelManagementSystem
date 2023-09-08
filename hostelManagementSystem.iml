@@ -3,7 +3,20 @@
   <component name="FacetManager">
     <facet type="hibernate" name="Hibernate">
       <configuration>
-        <datasource-map />
+        <datasource-map>
+          <unit-entry name="hibernate.cfg.xml" value="89d2aa0a-2f8e-4b57-a2f1-1e2f1722fe18" />
+        </datasource-map>
+        <naming-strategy-map />
+        <deploymentDescriptor name="hibernate.cfg.xml" url="file://$MODULE_DIR$/src/hibernate.cfg.xml" />
+      </configuration>
+    </facet>
+    <facet type="jpa" name="JPA">
+      <configuration>
+        <setting name="validation-enabled" value="true" />
+        <setting name="provider-name" value="Hibernate" />
+        <datasource-mapping>
+          <factory-entry name="hostelManagementSystem" value="93007684-a498-471d-bbda-e04a6f91f93e" />
+        </datasource-mapping>
         <naming-strategy-map />
       </configuration>
     </facet>
@@ -15,11 +28,11 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="antlr-2.7.7" level="project" />
-    <orderEntry type="library" name="javafx-swt" level="project" />
     <orderEntry type="library" name="mysql-connector-j-8.0.32" level="project" />
     <orderEntry type="library" name="jfoenix-9.0.10" level="project" />
     <orderEntry type="library" name="AnimateFX-1.2.3" level="project" />
     <orderEntry type="library" name="lombok" level="project" />
+    <orderEntry type="library" name="antlr-2.7.71" level="project" />
+    <orderEntry type="library" name="javafx-swt" level="project" />
   </component>
 </module>

@@ -9,36 +9,41 @@ import java.io.IOException;
 import java.util.Properties;
 
 public class SessionFactoryConfig {
-    private static SessionFactoryConfig sessionFactoryConfig;
-    private static SessionFactory sessionFactory;
+    private static SessionFactoryConfig factoryConfig;
+    private final SessionFactory sessionFactory;
 
+    /**
+     * Defines default constructor as private
+     * to avoid object creation of this class from outside
+     */
     private SessionFactoryConfig() {
-        Configuration configuration = new Configuration();
-        configuration.addAnnotatedClass(User.class);
-        configuration.addAnnotatedClass(Student.class);
-        configuration.addAnnotatedClass(Room.class);
-        configuration.addAnnotatedClass(Reservation.class);
-
-        Properties properties =new Properties();
-        try{
-            properties.load(ClassLoader.getSystemClassLoader().getResourceAsStream("hibernate.properties"));
-
-        } catch (IOException e) {
-            System.out.println("File not found!.");
-        }
-
-        configuration.mergeProperties(properties);
-
-        sessionFactory = configuration.buildSessionFactory();
+        // Creates the Session Factory
+        sessionFactory = new Configuration()
+                .configure()
+                .addAnnotatedClass(User.class)
+                .addAnnotatedClass(Student.class)
+                .addAnnotatedClass(Room.class)
+                .addAnnotatedClass(Reservation.class)
+                .buildSessionFactory();
     }
 
-    public static SessionFactoryConfig getInstance(){
-        return (sessionFactoryConfig == null) ?
-                sessionFactoryConfig = new SessionFactoryConfig() :
-                sessionFactoryConfig;
+    /**
+     * @return lk.ijse.gdse.orm.hibernate.config.SessionFactoryConfig
+     * Singleton the class to avoid object re-creation
+     */
+    public static SessionFactoryConfig getInstance() {
+        return (null == factoryConfig)
+                ? factoryConfig = new SessionFactoryConfig()
+                : factoryConfig;
     }
 
-    public final Session getSession(){
+    /**
+     * @return org.hibernate.Session
+     * Returns Hibernate session whenever this method is called
+     * by following the steps of Native Bootstrapping
+     */
+    public Session getSession() {
+        // Opens a new Session and Returns
         return sessionFactory.openSession();
     }
 }

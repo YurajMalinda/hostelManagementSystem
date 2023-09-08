@@ -1,14 +1,13 @@
 package lk.ijse.gdse.hostelManagementSystem.entity;
 
+import lombok.Getter;
+import lombok.Setter;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-import lombok.*;
-
 @Getter
 @Setter
-
 public class CustomEntity {
     // reservation
     private String res_id;

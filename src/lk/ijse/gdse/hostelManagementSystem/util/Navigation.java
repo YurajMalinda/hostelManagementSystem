@@ -46,7 +46,8 @@ public class Navigation {
     }
 
     public static void initUI(String location) throws IOException {
-        Navigation.pane.getChildren().add(FXMLLoader.load(Navigation.class.getResource("/lk/ijse/gdse/hostelManagementSystem/view/"+location)));
+        Navigation.pane.getChildren()
+                .add(FXMLLoader.load(Navigation.class.getResource("/lk/ijse/gdse/hostelManagementSystem/view/"+location)));
         new FadeIn(pane).setSpeed(3).play();
 
     }
