@@ -65,7 +65,7 @@
                   </JFXButton>
                </center>
                <bottom>
-                  <JFXButton fx:id="btnEdit" buttonType="RAISED" onAction="#btnEditOnAction" prefHeight="20.0" prefWidth="100.0" ripplerFill="#0d009a" style="-fx-background-color: #555390; -fx-background-radius: 10;" text="Update" textFill="WHITE" BorderPane.alignment="CENTER">
+                  <JFXButton fx:id="btnEdit" buttonType="RAISED" onAction="#btnEditOnAction" prefHeight="20.0" prefWidth="100.0" ripplerFill="#0d009a" style="-fx-background-color: #555390; -fx-background-radius: 10;" text="Edit" textFill="WHITE" BorderPane.alignment="CENTER">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
@@ -196,7 +196,7 @@
                         <Label layoutX="10.0" layoutY="15.0" prefHeight="24.0" prefWidth="140.0" style="-fx-font-size: 12; -fx-font-weight: bold; -fx-text-fill: #6D6E71;" styleClass="\\@font-face {    font-family: 'Montserrat';    src: url('Montserrat-Bold.ttf');}.text {    -fx-font-family: &quot;Montserrat&quot;;}" text="Room ID" GridPane.rowIndex="1" />
                         <JFXTextField fx:id="txtResID" focusColor="#0d009a" labelFloat="true" layoutX="118.0" layoutY="82.0" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="134.0" style="-fx-font-size: 12; -fx-font-weight: bold; -fx-text-fill: #6D6E71;" unFocusColor="#616161" GridPane.columnIndex="1" />
                         <JFXTextField fx:id="txtRoomID" focusColor="#0d009a" labelFloat="true" layoutX="118.0" layoutY="14.0" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="134.0" style="-fx-font-size: 12; -fx-font-weight: bold; -fx-text-fill: #6D6E71;" unFocusColor="#616161" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <DatePicker fx:id="dateDate" prefHeight="20.0" prefWidth="191.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <DatePicker fx:id="txtDate" prefHeight="56.0" prefWidth="164.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                      </children>
                   </GridPane>
                   <JFXButton fx:id="btnDelete" buttonType="RAISED" layoutX="14.0" layoutY="218.0" onAction="#btnDeleteOnAction" prefHeight="20.0" prefWidth="100.0" ripplerFill="#a5a6a8" style="-fx-background-color: #ff4848; -fx-background-radius: 10;" text="Delete" textFill="WHITE">

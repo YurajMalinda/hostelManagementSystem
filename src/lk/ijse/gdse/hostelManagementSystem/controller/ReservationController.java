@@ -1,7 +1,6 @@
 package lk.ijse.gdse.hostelManagementSystem.controller;
 
 import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -55,7 +54,6 @@ public class ReservationController {
     public TableColumn colStdID;
     public TableColumn colStdName;
     public JFXTextField txtStudentID;
-    public DatePicker dateDate;
     public RadioButton rbPendingStatus;
     public ToggleGroup PaymentStatus;
     public RadioButton rbPaidStatus;
@@ -67,6 +65,7 @@ public class ReservationController {
     public AnchorPane pane;
     public AnchorPane reservationDetailPane;
     public AnchorPane newReservationPane;
+    public DatePicker txtDate;
 
     ReservationBO reservationBO = (ReservationBO) BOFactory.getBoFactory().getBO(BOFactory.Type.RESERVATION);
 
@@ -129,7 +128,7 @@ public class ReservationController {
                 txtRoomID.setText(newValue.getRoom_type_id());
                 txtSearchStudent.setText(newValue.getId());
                 txtStudentID.setText(newValue.getId());
-                dateDate.setValue(LocalDate.parse(newValue.getRes_date().toString()));
+                txtDate.setValue(LocalDate.parse(newValue.getRes_date().toString()));
             }
         });
 
@@ -154,7 +153,8 @@ public class ReservationController {
                         break;
                 }
             }
-        });
+        }
+        );
 
         loadRoomTable("");
         loadStudentTable("");
@@ -195,8 +195,10 @@ public class ReservationController {
             if (std.getId().contains(SearchID) ||
                     std.getName().contains(SearchID) ||
                     std.getAddress().contains(SearchID)) {
-                StudentDTO studentDTO = new StudentDTO(std.getId(),
-                        std.getName(), std.getAddress(),
+                StudentDTO studentDTO = new StudentDTO(
+                        std.getId(),
+                        std.getName(),
+                        std.getAddress(),
                         std.getContact_no(),
                         std.getDob(),
                         std.getGender());
@@ -238,8 +240,7 @@ public class ReservationController {
         txtRoomID.setText("");
         txtSearchStudent.setText("");
         txtStudentID.setText("");
-
-        dateDate.setValue(LocalDate.now());
+        txtDate.setValue(LocalDate.now());
 
         newReservationPane.setDisable(false);
         reservationDetailPane.setDisable(true);
@@ -274,16 +275,15 @@ public class ReservationController {
         Alert alert = new Alert(Alert.AlertType.WARNING, "Deleted Selected ?", ButtonType.YES, ButtonType.NO);
         Optional<ButtonType> result = alert.showAndWait();
         if (result.get() == ButtonType.YES) {
-            String idText = txtResID.getText();
+            String id = txtResID.getText();
 
             ReservationDTO reservationDTO = new ReservationDTO();
-            reservationDTO.setRes_id(idText);
+            reservationDTO.setRes_id(id);
 
             boolean isDeleted = reservationBO.deleteReservation(reservationDTO);
 
             if (isDeleted) {
                 new Alert(Alert.AlertType.INFORMATION, " Deleted ! ").show();
-
                 loadReservationTable("");
                 loadRoomTable("");
                 loadStudentTable("");
@@ -310,20 +310,20 @@ public class ReservationController {
         ReservationDTO reservationDTO = new ReservationDTO();
 
         reservationDTO.setRes_id(txtResID.getText());
-        reservationDTO.setRes_date(dateDate.getValue());
+        reservationDTO.setRes_date(txtDate.getValue());
 
         RadioButton rb = (RadioButton) PaymentStatus.getSelectedToggle();
         reservationDTO.setStatus(rb.getText());
 
         try {
-            reservationDTO.setRoom(new Room
-                    (roomDTO.getRoom_type_id(),
+            reservationDTO.setRoom(new Room(
+                            roomDTO.getRoom_type_id(),
                             roomDTO.getType(),
                             roomDTO.getKey_money(),
                             roomDTO.getQty()));
 
-            reservationDTO.setStudent(new Student
-                    (studentDTO.getId(),
+            reservationDTO.setStudent(new Student(
+                            studentDTO.getId(),
                             studentDTO.getName(),
                             studentDTO.getAddress(),
                             studentDTO.getContact_no(),
@@ -333,7 +333,7 @@ public class ReservationController {
             new Alert(Alert.AlertType.WARNING, " Select / Fill Data ! ").show();
         }
 
-        if (dateDate.getValue() != null) {
+        if (txtDate.getValue() != null) {
             if (btnReserve.getText().equals("Reserve")) {
                 boolean isAdded = reservationBO.addReservation(reservationDTO);
                 if (isAdded) {

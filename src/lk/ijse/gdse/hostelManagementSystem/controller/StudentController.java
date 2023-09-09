@@ -38,7 +38,7 @@ public class StudentController {
     public JFXButton btnCancel;
     public JFXButton btnSave;
     public JFXTextField txtSearch;
-    public TableView tblStudent;
+    public TableView <StudentDTO>tblStudent;
     public TableColumn colID;
     public TableColumn colName;
     public TableColumn colAddress;
@@ -68,7 +68,7 @@ public class StudentController {
 
         tblStudent.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue != null) {
-                setData((StudentDTO) newValue);
+                setData(newValue);
                 btnDelete.setDisable(true);
                 btnCancel.setDisable(true);
                 btnSave.setDisable(true);

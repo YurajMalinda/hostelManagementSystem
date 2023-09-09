@@ -2,10 +2,12 @@ package lk.ijse.gdse.hostelManagementSystem.dao.custom.impl;
 
 import lk.ijse.gdse.hostelManagementSystem.dao.custom.RoomDAO;
 import lk.ijse.gdse.hostelManagementSystem.entity.Room;
+import lk.ijse.gdse.hostelManagementSystem.entity.Student;
 import lk.ijse.gdse.hostelManagementSystem.util.SessionFactoryConfig;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.NativeQuery;
+import org.hibernate.query.Query;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,19 +18,12 @@ public class RoomDAOImpl implements RoomDAO {
         Session session = SessionFactoryConfig.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
 
-        String sql = "SELECT * FROM room ORDER BY CAST(SUBSTRING(room_type_id, 2) AS UNSIGNED)";
-        NativeQuery sqlQuery = session.createSQLQuery(sql);
-
-        sqlQuery.addEntity(Room.class);
-
-        List<Room> roomList = sqlQuery.list();
-        ArrayList<Room> roomData = new ArrayList<>();
-
-        for(Room room : roomList){
-            roomData.add(room);
-        }
-
-        return roomData;
+        ArrayList<Room> allRooms;
+        Query query = session.createQuery("FROM Room ");
+        allRooms = (ArrayList<Room>) query.list();
+        transaction.commit();
+        session.close();
+        return allRooms;
     }
 
     @Override

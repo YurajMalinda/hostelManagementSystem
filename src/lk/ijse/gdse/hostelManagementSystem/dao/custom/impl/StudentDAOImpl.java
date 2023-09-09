@@ -82,26 +82,94 @@ public class StudentDAOImpl implements StudentDAO {
         Session session = SessionFactoryConfig.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
 
-        // session.createQuery("FROM employee ORDER BY CAST(SUBSTRING(EmpID, 2) AS UNSIGNED) DESC LIMIT 1");
-        try{
-            String sql = "SELECT * FROM student ORDER BY CAST(SUBSTRING(id, 2) AS UNSIGNED) DESC LIMIT 1";
-            NativeQuery sqlQuery = session.createSQLQuery(sql);
+        try {
+            String hql = "SELECT s.id FROM Student s ORDER BY CAST(SUBSTRING(s.id, 2) AS integer) DESC";
+            Query<String> hqlQuery = session.createQuery(hql, String.class);
 
-            sqlQuery.addEntity(Student.class);
+            hqlQuery.setMaxResults(1); // Limit the result to 1 row.
 
-            List <Student> studentList = sqlQuery.list();
-            String id = null;
-            for(Student student : studentList){
-                id = student.getId();
+            List<String> idList = hqlQuery.list();
+
+            if (!idList.isEmpty()) {
+                String id = idList.get(0);
+                transaction.commit();
+                session.close();
+                return id;
             }
-            transaction.commit();
-            session.close();
-            return id;
+        } catch (Exception e) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
 
-        }catch (Exception e) {
-            transaction.commit();
-            session.close();
-            return null;
+            e.printStackTrace(); // Handle the exception as needed.
+        } finally {
+            if (session != null && session.isOpen()) {
+                session.close();
+            }
         }
+
+        return null;
     }
+
+//    public String getCurrentId() {
+//        Session session = SessionFactoryConfig.getInstance().getSession();
+//        Transaction transaction = session.beginTransaction();
+//
+//        try {
+//            String sql = "SELECT * FROM student ORDER BY CAST(SUBSTRING(id, 2) AS UNSIGNED) DESC LIMIT 1";
+//            NativeQuery sqlQuery = session.createSQLQuery(sql);
+//
+//            sqlQuery.addEntity(Student.class);
+//
+//            List<Student> studentList = sqlQuery.list();
+//            String id = null;
+//
+//            for (Student student : studentList) {
+//                id = student.getId();
+//            }
+//
+//            transaction.commit();
+//            session.close();
+//            return id;
+//        } catch (Exception e) {
+//            if (transaction != null) {
+//                transaction.rollback();
+//            }
+//
+//            e.printStackTrace(); // Handle the exception as needed.
+//        } finally {
+//            if (session != null && session.isOpen()) {
+//                session.close();
+//            }
+//        }
+//
+//        return null;
+//    }
+
+//    public String getCurrentId() {
+//        Session session = SessionFactoryConfig.getInstance().getSession();
+//        Transaction transaction = session.beginTransaction();
+//
+//        // session.createQuery("FROM employee ORDER BY CAST(SUBSTRING(EmpID, 2) AS UNSIGNED) DESC LIMIT 1");
+//        try{
+//            String sql = "SELECT * FROM student ORDER BY CAST(SUBSTRING(id, 2) AS UNSIGNED) DESC LIMIT 1";
+//            NativeQuery sqlQuery = session.createSQLQuery(sql);
+//
+//            sqlQuery.addEntity(Student.class);
+//
+//            List <Student> studentList = sqlQuery.list();
+//            String id = null;
+//            for(Student student : studentList){
+//                id = student.getId();
+//            }
+//            transaction.commit();
+//            session.close();
+//            return id;
+//
+//        }catch (Exception e) {
+//            transaction.commit();
+//            session.close();
+//            return null;
+//        }
+//    }
 }

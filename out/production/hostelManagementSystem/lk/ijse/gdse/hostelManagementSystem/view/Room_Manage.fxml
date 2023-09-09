@@ -47,7 +47,7 @@
             </TableView>
             <AnchorPane layoutX="22.0" layoutY="75.0" prefHeight="442.0" prefWidth="400.0" style="-fx-background-color: #ffff; -fx-background-radius: 10;">
                <children>
-                  <JFXButton fx:id="btnEdit" buttonType="RAISED" layoutX="146.0" layoutY="11.0" onAction="#btnEditOnAction" prefHeight="20.0" prefWidth="100.0" ripplerFill="#0d009a" style="-fx-background-color: #555390; -fx-background-radius: 10;" text="Update" textFill="WHITE">
+                  <JFXButton fx:id="btnEdit" buttonType="RAISED" layoutX="146.0" layoutY="11.0" onAction="#btnEditOnAction" prefHeight="20.0" prefWidth="100.0" ripplerFill="#0d009a" style="-fx-background-color: #555390; -fx-background-radius: 10;" text="Edit" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
